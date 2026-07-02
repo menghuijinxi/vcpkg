@@ -1,0 +1,43 @@
+{
+  "name": "skiaui",
+  "version": "0.1.0",
+  "description": "A lightweight Skia UI runtime with HTML/CSS parsing, Yoga layout, DOM events, and optional Win32/DX12 host.",
+  "homepage": "https://github.com/menghuijinxi/SkiaUI",
+  "license": null,
+  "supports": "windows",
+  "dependencies": [
+    "lexbor",
+    {
+      "name": "skia",
+      "default-features": false,
+      "features": [
+        "jpeg",
+        "png",
+        "webp"
+      ]
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    },
+    "yoga"
+  ],
+  "features": {
+    "win32-dx12": {
+      "description": "Build the optional Win32/DX12 host target SkiaUI::SkuiWin32Dx12.",
+      "dependencies": [
+        {
+          "name": "skia",
+          "default-features": false,
+          "features": [
+            "direct3d"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -9388,6 +9388,10 @@
       "baseline": "148",
       "port-version": 0
     },
+    "skiaui": {
+      "baseline": "0.1.0",
+      "port-version": 0
+    },
     "skyr-url": {
       "baseline": "3.0.0",
       "port-version": 0

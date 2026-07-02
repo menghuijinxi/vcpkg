@@ -1,0 +1,16 @@
+skiaui provides CMake targets:
+
+  find_package(SkiaUI CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE SkiaUI::Skui)
+
+The optional Win32/DX12 host is available with:
+
+  vcpkg install skiaui[win32-dx12]
+
+Then link:
+
+  target_link_libraries(main PRIVATE SkiaUI::SkuiWin32Dx12)
+
+SkiaUI depends on the target project's Skia build. If your project uses a
+different rendering backend, depend on Skia features that match that backend
+and embed SkiaUI through SkiaUI::Skui.
