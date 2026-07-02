@@ -3,6 +3,14 @@ skiaui provides CMake targets:
   find_package(SkiaUI CONFIG REQUIRED)
   target_link_libraries(main PRIVATE SkiaUI::Skui)
 
+The optional Win32 platform adapter is available with:
+
+  vcpkg install skiaui[win32]
+
+Then link:
+
+  target_link_libraries(main PRIVATE SkiaUI::SkuiWin32)
+
 The optional Win32/DX12 host is available with:
 
   vcpkg install skiaui[win32-dx12]
@@ -13,4 +21,6 @@ Then link:
 
 SkiaUI depends on the target project's Skia build. If your project uses a
 different rendering backend, depend on Skia features that match that backend
-and embed SkiaUI through SkiaUI::Skui.
+and embed SkiaUI through SkiaUI::Skui. Windows OpenGL/Vulkan hosts can reuse
+SkiaUI::SkuiWin32 for Win32 input, clipboard, IME, and cursor handling without
+linking the DX12 host.
