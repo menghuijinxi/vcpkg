@@ -24,3 +24,11 @@ different rendering backend, depend on Skia features that match that backend
 and embed SkiaUI through SkiaUI::Skui. Windows OpenGL/Vulkan hosts can reuse
 SkiaUI::SkuiWin32 for Win32 input, clipboard, IME, and cursor handling without
 linking the DX12 host.
+
+The optional SkiaUiDesk demo executable is available with:
+
+  vcpkg install skiaui[demo]
+
+After installation, run:
+
+  <vcpkg-root>\installed\<triplet>\tools\skiaui\SkiaUiDesk.exe

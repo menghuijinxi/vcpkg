@@ -1,6 +1,6 @@
 {
   "name": "skiaui",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A lightweight Skia UI runtime with HTML/CSS parsing, Yoga layout, DOM events, optional Win32 adapter, and optional Win32/DX12 host.",
   "homepage": "https://github.com/menghuijinxi/SkiaUI",
   "license": null,
@@ -27,6 +27,18 @@
     "yoga"
   ],
   "features": {
+    "demo": {
+      "description": "Build and install the optional SkiaUiDesk demo executable.",
+      "dependencies": [
+        {
+          "name": "skia",
+          "default-features": false,
+          "features": [
+            "direct3d"
+          ]
+        }
+      ]
+    },
     "win32": {
       "description": "Build the optional Win32 platform adapter target SkiaUI::SkuiWin32."
     },
@@ -38,13 +50,6 @@
           "default-features": false,
           "features": [
             "direct3d"
-          ]
-        },
-        {
-          "name": "skiaui",
-          "default-features": false,
-          "features": [
-            "win32"
           ]
         }
       ]
