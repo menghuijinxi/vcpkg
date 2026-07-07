@@ -32,3 +32,8 @@ The optional SkiaUiDesk demo executable is available with:
 After installation, run:
 
   <vcpkg-root>\installed\<triplet>\tools\skiaui\SkiaUiDesk.exe
+
+Installed documentation is available at:
+
+  <vcpkg-root>\installed\<triplet>\share\skiaui\README.md
+  <vcpkg-root>\installed\<triplet>\share\skiaui\docs\
