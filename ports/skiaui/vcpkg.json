@@ -1,6 +1,6 @@
 {
   "name": "skiaui",
-  "version": "0.1.5",
+  "version": "0.1.9",
   "description": "A lightweight Skia UI runtime with HTML/CSS parsing, Yoga layout, DOM events, optional Win32 adapter, and optional Win32/DX12 host.",
   "homepage": "https://github.com/menghuijinxi/SkiaUI",
   "license": null,

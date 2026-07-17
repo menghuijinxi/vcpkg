@@ -1,10 +1,9 @@
 vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
-vcpkg_from_github(
+vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO menghuijinxi/SkiaUI
-    REF bc81617ae7ca660adcd2d4cd5b85a3bdf84687a7
-    SHA512 f8f721ef3c04d2c69538523c4696fb1decaf1a6b5cd4ad6eb0dfa4d4c6d005a1722d488d7cd5d2862964a6b8734c020ce361a876f6d0c9d194e8d9abe1029ca9
+    URL "http://10.1.1.58:8418/SunXuJing/SkiaUI.git"
+    REF 16cca3cd7af4eb8553c2bf9151144e98d906e90d
     HEAD_REF master
 )
 
