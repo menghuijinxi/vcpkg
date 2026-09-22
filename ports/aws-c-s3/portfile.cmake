@@ -2,8 +2,8 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO awslabs/aws-c-s3
     REF "v${VERSION}"
-    SHA512 7f478e6cd1b9b5236c95f0a3e25a3d3331db4d6b47c9971a242d6daada9c72f929b04b8de69b25bf6d6ff4fa9674babcc32131d58b06f764bdcfa79b52e38d79
-    HEAD_REF master
+    SHA512 6b424e00961e2252f071c2814a35ab20b4281cff0a129cb91c6b2228acaa6c925a7b7bb4aae568375ff80bc60ccd4ba17fcae29e25947cd98d4418a3d41d8913
+    HEAD_REF main
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
@@ -14,7 +14,7 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
-        "-DCMAKE_MODULE_PATH=${CURRENT_INSTALLED_DIR}/share/aws-c-common" # use extra cmake files
+        "-DCMAKE_PREFIX_PATH=${CURRENT_INSTALLED_DIR}/share/aws-c-common/modules" # use extra cmake files
         -DBUILD_TESTING=FALSE
         ${FEATURE_OPTIONS}
 )
@@ -35,4 +35,8 @@ file(REMOVE_RECURSE
 
 vcpkg_copy_pdbs()
 
-vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
+vcpkg_install_copyright(
+    FILE_LIST
+        "${SOURCE_PATH}/LICENSE"
+        "${SOURCE_PATH}/NOTICE"
+)

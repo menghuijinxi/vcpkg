@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KDE/kconfig
     REF "v${VERSION}"
-    SHA512 85c4a66284a6b0ad846aecda7495330b3bf7ae0bf5f5d386b620479ffcbd19b1f6374fcd1ab051edce9abd2b92e9d747446ebc62210e7a6851ede43a02f2ae4e
+    SHA512 6288fb857b011fbca01b91991be91b22d91f3a021acd9bc3f99fcabaa5f53b8e70a73d6f4a3d1995df0ffcea9e1c406a3b659e23d8e3c2363998dcfd1586a8ea
     HEAD_REF master
 )
 

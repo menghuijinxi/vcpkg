@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KDE/ki18n
     REF "v${VERSION}"
-    SHA512 b57ebf21c6ddefd76761ef47ffbf3a49e1b29f3f8554e8b02e289d19197521e49286c9b6875e0746bce2db8a3bec9468eb992559aec7570f968dbbedfc8c64b0
+    SHA512 79e58072cd8893a50af351feb7c7f9f5c1c21064c87358b5794b9913c310438f1338728b4ae75dc4969e576fe1cf56b02e07dfe570fef7ee54d5f4f28ade2387
     HEAD_REF master
 )
 
@@ -12,10 +12,17 @@ file(WRITE "${SOURCE_PATH}/.clang-format" "DisableFormat: true\nSortIncludes: fa
 vcpkg_check_features(
     OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     FEATURES
-        qml BUILD_WITH_QML
+        qml        BUILD_WITH_QML
+        iso-codes  CMAKE_REQUIRE_FIND_PACKAGE_IsoCodes
+    INVERTED_FEATURES
+        iso-codes  CMAKE_DISABLE_FIND_PACKAGE_IsoCodes
 )
 
 vcpkg_find_acquire_program(PYTHON3)
+if("iso-codes" IN_LIST FEATURES)
+    vcpkg_find_acquire_program(PKGCONFIG)
+    set(ENV{PKG_CONFIG} "${PKGCONFIG}")
+endif()
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
@@ -40,8 +47,10 @@ vcpkg_copy_pdbs()
 # fallback. This is an absolute path but is ultimately relocatable, so skip the check.
 set(VCPKG_POLICY_SKIP_ABSOLUTE_PATHS_CHECK enabled)
 
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/share")
+file(REMOVE_RECURSE
+    "${CURRENT_PACKAGES_DIR}/debug/include"
+    "${CURRENT_PACKAGES_DIR}/debug/share"
+)
 
 file(GLOB LICENSE_FILES "${SOURCE_PATH}/LICENSES/*")
 vcpkg_install_copyright(FILE_LIST ${LICENSE_FILES})
