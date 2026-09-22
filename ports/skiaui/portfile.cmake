@@ -3,7 +3,7 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
     URL "https://github.com/menghuijinxi/SkiaUI.git"
-    REF 854bab8ea619e3767b588de823b20ac4a81c4f6d
+    REF e2b639c012d9bf9453530871be041de30a293cf8
     HEAD_REF master
 )
 
