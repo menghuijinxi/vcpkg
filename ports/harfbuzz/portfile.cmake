@@ -2,11 +2,13 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO harfbuzz/harfbuzz
     REF "${VERSION}"
-    SHA512 a0f4e70e2662c9fb982303108690dd5e8e72311f191ff3369fedbdc8a0df40db3f2418b80ce9304827c4a8e908b7d5e54d4e82cb491a84b1c3ceb8cece832e2e
+    SHA512 65b7a0ca1a5fa6b1508384e8b777050e3370c88e48f82b2e90d2f194c9b9b49b0045b7106ad70d29f33a737848518dbb05892b2fac2b6ff2b6d33b30362b34d4
     HEAD_REF master
     PATCHES
         ${ANDROID_LOCALECONV_L_PATCH}
         no-threads-on-emscripten.patch
+        fix-meson-cxx-link.patch
+        fix-clangcl-cxx14.patch
 )
 
 if("icu" IN_LIST FEATURES)
